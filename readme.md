@@ -36,10 +36,10 @@ Preferences > Security & Privacy > General > Open Anyway)
 3. There may be some playlists which the app wouldn't be able to parse.
 
 
-## Copyright Info:
+## Legal Info:
 
 **In case your use of the software forms the basis of copyright infringement, or you use the software for any other illegal purposes, the authors cannot take any responsibility for you.**
 
-V-1.1.0
+v1.1.0
 
 ### For feature requests or bugs: info@kunalbagaria.com
