@@ -1,0 +1,26 @@
+{
+  "name": "ytdl",
+  "productName": "YouTube Downloader",
+  "description": "Simple, Fast GUI for youtube-dl. Download upto 8K ultra-high resolution videos.",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.1.0",
+  "author": "Kunal Bagaria",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "nodemon": "nodemon --exec 'electron .'"
+  },
+  "dependencies": {
+    "execa": "^4.0.3",
+    "sanitize-filename": "^1.6.3"
+  },
+  "build": {
+    "asar": false
+  },
+  "devDependencies": {
+    "electron": "^10.1.4",
+    "electron-builder": "^22.9.1"
+  }
+}
