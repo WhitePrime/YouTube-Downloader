@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.drag {
+  height: 50px;
+  width: 100%;
+  -webkit-app-region: drag;
+}
+
+body {
+  margin: 0 auto;
+  background-color: black;
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+box {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 128px;
+  top: 45px;
+
+  border: 14px solid rgba(255, 0, 89, 0.36);
+  box-sizing: border-box;
+}
+
+h1 {
+  position: absolute;
+  width: 506px;
+  height: 56px;
+  left: 165px;
+  top: 62px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56px;
+
+  color: #FF0059;
+
+}
+
+w {
+  color: white;
+}
+
+.btn-vad {
+  position: absolute;
+  width: 250px;
+  height: 60px;
+  left: 275px;
+  top: 264px;
+
+  background: #FF0059;
+  border-radius: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: white;
+
+}
+
+.btn-ad {
+  position: absolute;
+  width: 250px;
+  height: 60px;
+  left: 275px;
+  top: 357px;
+
+  background: #FFFFFF;
+  border-radius: 22px;
+
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #FF0059;
+
+
+}
+
+.get-btn:hover {
+  color: #FF0059;
+  background: white;
+}
+
+.link-input {
+  position: absolute;
+  width: 589px;
+  height: 45px;
+  left: 46px;
+  top: 235px;
+
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.link-input:focus {
+  outline: none;
+}
+
+.get-btn {
+  background: #FF0059;
+  border-radius: 12px;
+  width: 101px;
+  height: 47px;
+  color: white;
+  left: 656px;
+  top: 235px;
+  position: absolute;
+  outline: none;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+#thumbnail {
+  position: absolute;
+  width: 290px;
+  height: 163px;
+  left: 45px;
+  top: 308px;
+  border-radius: 12px;
+}
+
+#vid-title {
+  position: absolute;
+  width: 289px;
+  height: 41px;
+  left: 45px;
+  top: 480px;
+
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #FFFFFF;
+
+}
+
+.quality {
+  position: absolute;
+  width: 101px;
+  height: 45px;
+  border-radius: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  outline: none;
+  border: none;
+
+}
+
+.quality:focus {
+  outline: none;
+}
+
+.active {
+  background: #FF0059;
+  color: white;
+}
+
+.not-active {
+  background: white;
+}
+
+#btn-zero {
+  left: 416px;
+  top: 308px;
+}
+
+#btn-one {
+  left: 534px;
+  top: 308px;
+}
+
+#btn-two {
+  left: 652px;
+  top: 308px;
+}
+
+#btn-three {
+  left: 416px;
+  top: 367px;
+
+}
+
+#btn-four {
+  left: 534px;
+  top: 367px;
+
+}
+
+#btn-five {
+  left: 652px;
+  top: 367px;
+
+}
+
+#btn-six {
+  left: 416px;
+  top: 426px;
+
+}
+
+#btn-seven {
+  left: 534px;
+  top: 426px;
+}
+
+#btn-eight {
+  left: 652px;
+  top: 426px;
+}
+
+#download {
+  position: absolute;
+  width: 137px;
+  height: 45px;
+  left: 616px;
+  top: 495px;
+
+  background: #FF0059;
+  border-radius: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+
+}
+
+.nav {
+  text-decoration-line: line-through;
+  background: #8C8C8C;
+  cursor: default;
+  color: white;
+}
+
+.quality:disabled {
+  text-decoration-line: line-through;
+  background: #8C8C8C;
+  cursor: default;
+  color: white;
+}
+
+#progress {
+  position: absolute;
+  width: 290px;
+  height: 17px;
+  left: 45px;
+  top: 540px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.hover:hover {
+  background: #FF0059;
+  color: white;
+}
+
+#index-btn-video {
+  left: 228px;
+  top: 300px;
+}
+
+#index-btn-audio {
+  left: 350px;
+  top: 300px;
+}
+
+#index-btn-vplaylist {
+  left: 471px;
+  top: 300px;
+}
+
+.nac {
+  background: #8C8C8C;
+  color: white;
+}
+
+.back-btn-text {
+  position: absolute;
+  left: 25px;
+  top: 45px;
+
+  color: #FFFFFF;
+}
+
+.convertAudioText {
+  position: absolute;
+  width: 140px;
+  height: 21px;
+  left: 400px;
+  top: 325px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #FFFFFF;
+}
+
+.formatAudioText {
+  position: absolute;
+  width: 105px;
+  height: 21px;
+  left: 400px;
+  top: 359px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #FFFFFF;
+
+}
+
+#download-audio {
+  position: absolute;
+  width: 137px;
+  height: 45px;
+  left: 400px;
+  top: 426px;
+
+  background: #FF0059;
+  border-radius: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+}
+
+.download-guide {
+  position: absolute;
+  left: 174px;
+  top: 519px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #FFFFFF;
+}
+
+#video-p {
+  left: 365px;
+  top: 367px;
+}
+
+#audio-p {
+  left: 491px;
+  top: 367px;
+}
+
+#downloadPlaylist {
+  position: absolute;
+  width: 137px;
+  height: 45px;
+  left: 616px;
+  top: 495px;
+
+  background: #FF0059;
+  border-radius: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+}
+
+#downloadPlaylist:hover {
+  color: #FF0059;
+  background: white;
+}
+
+#downloadPlaylist:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+}
+
+#downloadPlaylist:hover:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+}
+
+#download:hover {
+  color: #FF0059;
+  background: white;
+}
+
+#download:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+}
+
+#download:hover:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+}
+
+#download-audio:hover {
+  color: #FF0059;
+  background: white;
+}
+
+#download-audio:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+}
+
+#download-audio:hover:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+}
+
+#status {
+  position: absolute;
+  width: 488px;
+  height: 44px;
+  left: 46px;
+  top: 530px;
+
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #FFFFFF;
+
+}
+#get-btn:disabled{
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+  border: none;
+}
+#get-btn:hover:disabled {
+  background: #8C8C8C;
+  color: white;
+  cursor: default;
+  border: none;
+}

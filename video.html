@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+  <div class="drag"></div>
+  <a href="index.html">
+    <svg class="back-btn-text" style="right: 15px;" width="12" height="21" viewBox="0 0 12 21" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M11 1L1 9.96226L11 20" stroke="white" /></svg>
+  </a>
+  <box></box>
+  <h1>YouTube <w>Downloader</w>
+  </h1>
+  <div class="link">
+    <input class="link-input" id="link">
+    <button class="get-btn" id="get-btn">Get</button>
+  </div>
+  <div id="all">
+    <img src="loading.png" id="thumbnail" style="display: none;">
+    <p id="vid-title"></p>
+    <div id="buttons" style="display: none;">
+      <button id="btn-zero" class="quality hover" onclick="">4320p</button>
+      <button id="btn-one" class="quality hover" onclick="">2160p</button>
+      <button id="btn-two" class="quality hover" onclick="">1440p</button>
+      <button id="btn-three" class="quality hover" onclick="">1080p</button>
+      <button id="btn-four" class="quality hover" onclick="">720p</button>
+      <button id="btn-five" class="quality hover" onclick="">480p</button>
+      <button id="btn-six" class="quality hover" onclick="">360p</button>
+      <button id="btn-seven" class="quality hover" onclick="">240p</button>
+      <button id="btn-eight" class="quality hover" onclick="">144p</button>
+    </div>
+  </div>
+  <button id="download" style="display: none;" onclick="download()">Download</button>
+  <p id="status"></p>
+  <!-- <div id="progress" style="display: none;">
+    <div id="progress-bar"></div>
+  </div> -->
+  <script>
+    require('./renderer.js')
+  </script>
+  <script src='script.js'></script>
+</body>
+
+</html>
