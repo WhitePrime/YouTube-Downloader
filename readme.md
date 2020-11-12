@@ -2,7 +2,7 @@
 
 ### Here are the few things to get you started on using the YouTube Downloader.
 
-1. Install the DMG on macOS or EXE on Windows. 
+1. Install the DMG on macOS or EXE on Windows. ([Latest Release](https://github.com/promedial/YouTube-Downloader/releases))
 
 (For mac users: macOS will prevent you from opening the app so you'll have to open for the first time from: 
 Preferences > Security & Privacy > General > Open Anyway)
@@ -36,10 +36,9 @@ Preferences > Security & Privacy > General > Open Anyway)
 3. There may be some playlists which the app wouldn't be able to parse.
 
 
-## Legal Info:
+## Copyright Info:
 
 **In case your use of the software forms the basis of copyright infringement, or you use the software for any other illegal purposes, the authors cannot take any responsibility for you.**
 
-v1.1.0
 
 ### For feature requests or bugs: info@kunalbagaria.com
