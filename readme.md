@@ -1,4 +1,4 @@
-# Welcome to the YouTube Downloader wiki!
+# Welcome to the YouTube Downloader readme!
 
 ### Here are the few things to get you started on using the YouTube Downloader.
 
