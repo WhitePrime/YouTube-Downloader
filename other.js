@@ -6,6 +6,7 @@ const gggg = () => {
   console.log(`URL: ${URLinput.value}`);
   document.getElementById("thumbnail").style.display = "";
   enDownBtn()
+  document.getElementById('status').innerHTML = ''
   main()
 }
 convertBtn.addEventListener('click', gggg);
@@ -14,7 +15,7 @@ const scriptLoc = require('electron').remote.app.getAppPath()
 const ffmpegLoc = scriptLoc + '/dep/ffmpeg'
 removeQuarantine(ffmpegLoc)
 async function getVideoInfo(videoID) {
-    const cp = await execa(scriptLoc + '/dep/youtube-dl', ['-j', videoID, '--ffmpeg-location', ffmpegLoc])
+    const cp = await execa(scriptLoc + '/dep/youtube-dlc', ['-j', videoID, '--ffmpeg-location', ffmpegLoc])
     console.log(JSON.parse(cp.stdout))
     return JSON.parse(cp.stdout)
   }
@@ -24,13 +25,19 @@ async function removeQuarantine(filePath) {
 }
 async function main() {
   const json = await getVideoInfo(URLinput.value)
-  console.log(json.playlist);
-  let playlistTitle = json.playlist;
+  console.log(json.title);
+  let playlistTitle = json.title;
   let thumbnail = json.thumbnails[3];
+  if (thumbnail) {
   document.getElementById("thumbnail").src = thumbnail.url;
+  }
+  else {
+    document.getElementById("thumbnail").src = json.thumbnail
+  }
   document.getElementById('vid-title').innerHTML = sanitize(playlistTitle)
   document.getElementById("downloadPlaylist").style.display = "";
   document.getElementById("buttons").style.display = "";
+  document.getElementById("qual-info").style.display = "";
   return playlistTitle
 }
 let videoBtn = document.getElementById('video-p');
@@ -51,29 +58,25 @@ function audioActive() {
   audioBtn.classList.add('active')
 }
 async function videoPlayDownload(videoURL) {
-  let playlistTitle = await main()
-  let downStatus = document.getElementById('status')
-  const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle
-  const downlo = execa(scriptLoc + '/dep/youtube-dl', ['-o', downLocation + '/%(title)s.%(ext)s', '-i', '-f', 'bestvideo+bestaudio', '--merge-format', 'mp4', videoURL, '--ffmpeg-location', ffmpegLoc])
-  downlo.stdout.on('data', (data) => {
-    let stat = data.toString('utf-8')
-    downStatus.innerHTML = 'Status: ' + stat
-  })
-  console.log(downlo)
-  downlo.on('exit', function (code) {
-    if (code == 0) {
-    enDownBtn()
-    }
-    else {
-    videoPlayDownload(videoURL)
-    }
-  })
+    let playlistTitle = await main()
+    let downStatus = document.getElementById('status')
+    const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle + '.mp4'
+    const downlo = execa(scriptLoc + '/dep/youtube-dlc', ['-o', downLocation,'--merge-output-format', 'mp4', videoURL, '--ffmpeg-location', ffmpegLoc])
+    downlo.stdout.on('data', (data) => {
+      let stat = data.toString('utf-8')
+      downStatus.innerHTML = 'Status: ' + stat
+    })
+    console.log(downlo)
+    downlo.on('exit', function () {
+      enDownBtn()
+      document.getElementById('status').innerHTML = 'Status: Done!'
+    })
 }
 async function audioPlayDownload(videoURL) {
   let playlistTitle = await main()
   let downStatus = document.getElementById('status')
-  const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle
-  const downlo = execa(scriptLoc + '/dep/youtube-dl', ['-o', downLocation + '/%(title)s.%(ext)s', '-i', '-x', '--audio-format', 'mp3', videoURL, '--ffmpeg-location', ffmpegLoc])
+  const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle + '.mp3'
+  const downlo = execa(scriptLoc + '/dep/youtube-dlc', ['-o', downLocation, '-i', '-x', '--audio-format', 'mp3', videoURL, '--ffmpeg-location', ffmpegLoc])
   downlo.stdout.on('data', (data) => {
     let stat = data.toString('utf-8')
     downStatus.innerHTML = 'Status: ' + stat
@@ -100,9 +103,6 @@ async function download() {
   let getBtn = document.getElementById('get-btn');
   getBtn.disabled = true
   activClass = document.getElementsByClassName("active")[0].innerHTML;
-  let playlistTitle = await main()
-  const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle
-  const mkdir = await execa('mkdir', [downLocation])
   if (activClass == 'Video') {
     videoPlayDownload(URLinput.value)
   } else if (activClass == 'Audio') {

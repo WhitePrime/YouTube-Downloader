@@ -6,6 +6,7 @@ let URLinput = document.querySelector('.link-input');
 const gggg = () => {
   console.log(`URL: ${URLinput.value}`);
   document.getElementById("thumbnail").style.display = "";
+  document.getElementById('status').innerHTML = ''
   downBtnRemove()
   main()
 }
@@ -21,7 +22,7 @@ const ffmpegLoc = scriptLoc + '/dep/ffmpeg'
 let vidtitle
 function getVideoInfo(videoID) {
   return new Promise((resolve) => {
-  const cp = execa(scriptLoc + '/dep/youtube-dl', ['-j', videoID, '--ffmpeg-location', ffmpegLoc])
+  const cp = execa(scriptLoc + '/dep/youtube-dlc', ['-j', videoID])
   cp.on('error', (error) => {
     console.log(error)
   })
@@ -318,7 +319,7 @@ async function execYtDl(videoURL) {
   console.log(downLocationVideo);
   let fcode = getFcode()
   console.log(fcode)
-  const foo = execa(scriptLoc + '/dep/youtube-dl', ['-o', downLocationVideo, '-f', `${fcode}${acode}`, '--merge-output-format', 'mp4', videoURL, '-c', '--ffmpeg-location', ffmpegLoc])
+  const foo = execa(scriptLoc + '/dep/youtube-dlc', ['-o', downLocationVideo, '-f', `${fcode}${acode}`, '--merge-output-format', 'mp4', videoURL, '-c', '--ffmpeg-location', ffmpegLoc])
   foo.stdout.on('data', (data) => {
     var stat = data.toString('utf-8')
     var downStatus = document.getElementById('status')
@@ -327,6 +328,7 @@ async function execYtDl(videoURL) {
   foo.on('exit', function(code) {
     if (code == 0) {
     downBtnRemove()
+    document.getElementById('status').innerHTML = 'Status: Done!'
     }
     else {
       execYtDl();
@@ -345,7 +347,7 @@ async function audioYtDl(videoURL) {
   let downStatus
   let downLocationAudio = require("os").homedir + '/Downloads/' + vidtitle + '.mp3'
   console.log("Downloading")
-  const foof = execa(scriptLoc + '/dep/youtube-dl', ['-o', downLocationAudio, '-x', '--audio-format', 'mp3', videoURL, '-c', '--ffmpeg-location', ffmpegLoc])
+  const foof = execa(scriptLoc + '/dep/youtube-dlc', ['-o', downLocationAudio, '-x', '--audio-format', 'mp3', videoURL, '-c', '--ffmpeg-location', ffmpegLoc])
   foof.stdout.on('data', (data) => {
     var stat = data.toString('utf-8')
     var downStatus = document.getElementById('status')
@@ -353,10 +355,8 @@ async function audioYtDl(videoURL) {
   })
   foof.on('exit', function(code) {
     if (code == 0) {
+    document.getElementById('status').innerHTML = 'Status: Converting'
     fixAudio()
-    }
-    else {
-      audioYtDl()
     }
   })
 }
@@ -368,12 +368,14 @@ async function fixAudio() {
   let downStatus
   const ffmpeg = execa(scriptLoc + '/dep/ffmpeg', ['-i', downLocationAud, downLocationAudioFix])
   ffmpeg.stdout.on('data', (data) => {
+    var stat = data.toString('utf-8')
     var downStatus = document.getElementById('status')
-    downStatus.innerHTML = 'Status: Converting'
+    downStatus.innerHTML = 'Status: ' + stat
   })
   ffmpeg.on('exit', function() {
     deleteOld()
     downBtnRemove()
+    document.getElementById('status').innerHTML = 'Status: Done!'
   })
 }
 async function downloadAudio() {

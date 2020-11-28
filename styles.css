@@ -287,18 +287,24 @@ w {
 }
 
 #index-btn-video {
-  left: 228px;
+  left: 135px;
   top: 300px;
 }
 
 #index-btn-audio {
-  left: 350px;
+  left: 256px;
   top: 300px;
 }
 
 #index-btn-vplaylist {
-  left: 471px;
+  left: 377px;
   top: 300px;
+}
+
+#index-btn-other {
+  left: 498px;
+  top: 300px;
+  width: 168px;
 }
 
 .nac {
@@ -475,15 +481,33 @@ w {
   color: #FFFFFF;
 
 }
-#get-btn:disabled{
+
+#get-btn:disabled {
   background: #8C8C8C;
   color: white;
   cursor: default;
   border: none;
 }
+
 #get-btn:hover:disabled {
   background: #8C8C8C;
   color: white;
   cursor: default;
   border: none;
+}
+
+#qual-info {
+  display: none;
+  position: absolute;
+  width: 104px;
+  height: 21px;
+  left: 365px;
+  top: 327px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #FFFFFF;
 }
