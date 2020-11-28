@@ -18,7 +18,7 @@ Preferences > Security & Privacy > General > Open Anyway)
 5. Maybe the video isn't loaded or downloaded. It's a YouTube issue and will work on trying again. You can press CMD + R to refresh the app.
 
 
-### Downloading Playlists:
+### Downloading Playlists (Currently disabled as it's being worked on):
 
 1. Enter the playlist link and wait for it to load.
 
