@@ -14,7 +14,7 @@ const scriptLoc = require('electron').remote.app.getAppPath()
 const ffmpegLoc = scriptLoc + '/dep/ffmpeg'
 removeQuarantine(ffmpegLoc)
 async function getVideoInfo(videoID) {
-    const cp = await execa(scriptLoc + '/dep/youtube-dl', ['-j', videoID, '--ffmpeg-location', ffmpegLoc])
+    const cp = await execa(scriptLoc + '/dep/youtube-dl', ['-j', '--playlist-items', '1', videoID, '--ffmpeg-location', ffmpegLoc])
     console.log(JSON.parse(cp.stdout))
     return JSON.parse(cp.stdout)
   }

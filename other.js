@@ -15,7 +15,7 @@ const scriptLoc = require('electron').remote.app.getAppPath()
 const ffmpegLoc = scriptLoc + '/dep/ffmpeg'
 removeQuarantine(ffmpegLoc)
 async function getVideoInfo(videoID) {
-    const cp = await execa(scriptLoc + '/dep/youtube-dlc', ['-j', videoID, '--ffmpeg-location', ffmpegLoc])
+    const cp = await execa(scriptLoc + '/dep/youtube-dl', ['-j', videoID, '--ffmpeg-location', ffmpegLoc])
     console.log(JSON.parse(cp.stdout))
     return JSON.parse(cp.stdout)
   }
@@ -61,7 +61,7 @@ async function videoPlayDownload(videoURL) {
     let playlistTitle = await main()
     let downStatus = document.getElementById('status')
     const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle + '.mp4'
-    const downlo = execa(scriptLoc + '/dep/youtube-dlc', ['-o', downLocation,'--merge-output-format', 'mp4', videoURL, '--ffmpeg-location', ffmpegLoc])
+    const downlo = execa(scriptLoc + '/dep/youtube-dl', ['-o', downLocation,'--merge-output-format', 'mp4', videoURL, '--ffmpeg-location', ffmpegLoc])
     downlo.stdout.on('data', (data) => {
       let stat = data.toString('utf-8')
       downStatus.innerHTML = 'Status: ' + stat
@@ -76,7 +76,7 @@ async function audioPlayDownload(videoURL) {
   let playlistTitle = await main()
   let downStatus = document.getElementById('status')
   const downLocation = require('os').homedir() + '/Downloads/' + playlistTitle + '.mp3'
-  const downlo = execa(scriptLoc + '/dep/youtube-dlc', ['-o', downLocation, '-i', '-x', '--audio-format', 'mp3', videoURL, '--ffmpeg-location', ffmpegLoc])
+  const downlo = execa(scriptLoc + '/dep/youtube-dl', ['-o', downLocation, '-i', '-x', '--audio-format', 'mp3', videoURL, '--ffmpeg-location', ffmpegLoc])
   downlo.stdout.on('data', (data) => {
     let stat = data.toString('utf-8')
     downStatus.innerHTML = 'Status: ' + stat
