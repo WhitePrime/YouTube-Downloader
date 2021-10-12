@@ -20,7 +20,7 @@
     "asar": false
   },
   "devDependencies": {
-    "electron": "^10.1.4",
+    "electron": "^11.5.0",
     "electron-builder": "^22.9.1"
   }
 }
